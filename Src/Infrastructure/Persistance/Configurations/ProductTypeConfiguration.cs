@@ -17,6 +17,8 @@ namespace Infrastructure.Persistance.Configurations
             builder.Property(x => x.Description).HasMaxLength(500);
             builder.Property(x => x.Title).HasMaxLength(100);
             builder.Property(x => x.Summary).HasMaxLength(100);
+            builder.HasQueryFilter(x => !x.IsDeleted);
+
         }
     }
 }

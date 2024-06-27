@@ -1,3 +1,4 @@
+using Application;
 using Infrastructure;
 using Infrastructure.Persistance;
 using Infrastructure.Persistance.SeedData;
@@ -6,10 +7,10 @@ using Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 
 #region Configuration Extention
-
+builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureService(builder.Configuration);
 builder.AddWebServiceCollection();
 

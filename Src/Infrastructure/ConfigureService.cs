@@ -1,4 +1,6 @@
-﻿using Infrastructure.Persistance;
+﻿using Application.Contracts;
+using Infrastructure.Persistance;
+using Infrastructure.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +18,8 @@ namespace Infrastructure
             IConfiguration configuration)
         {
             Services.AddDbContext<DataBaseContext>(opt => opt.UseSqlServer("Data Source=DESKTOP-C45ID5O\\MAHDI;Integrated Security=True;Initial Catalog=Online-shop;Connect Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"));
-            
+            //Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            Services.AddScoped<IUnitOfWork, UnitOfWork>();
             return Services;
         }
     }

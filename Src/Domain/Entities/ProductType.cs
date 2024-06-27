@@ -13,7 +13,6 @@ namespace Domain.Entities
 
         public string Description { get ; set ; }
         public bool IsActive { get ; set ; }
-        public bool IsDeleted { get ; set ; }
         public string Summary { get ; set ; }
     }
 }
