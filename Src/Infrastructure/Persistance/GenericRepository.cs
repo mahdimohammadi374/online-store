@@ -66,7 +66,8 @@ namespace Infrastructure.Persistance
 
         public async Task<T> GetEntityWithSpec(ISpecification<T> specification,CancellationToken cancellationToken)
         {
-            return await ApplySpecification(specification).FirstOrDefaultAsync(cancellationToken);
+            var result= await ApplySpecification(specification).FirstOrDefaultAsync(cancellationToken);
+            return result;
         }
 
         public async Task<IReadOnlyList<T>> ListAsyncSpec(ISpecification<T> specification, CancellationToken cancellationToken)

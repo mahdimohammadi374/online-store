@@ -1,14 +1,15 @@
-﻿using Domain.Entities.Base;
+﻿using Domain.Entities;
+using Domain.Entities.Base;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Contracts.Specification
 {
-    public class SpecificationEvaluator<T> where T : BaseEntity
+    public class SpecificationEvaluator<T> where T : class
     {
         public static IQueryable<T> GetQuery(IQueryable<T> inputQuery , ISpecification<T> specification)
         {
@@ -19,7 +20,8 @@ namespace Application.Contracts.Specification
             }
             if(specification.Includes.Any())
             {
-                query=specification.Includes.Aggregate(query , (current,value)=>current.Include(value));
+
+                query = specification.Includes.Aggregate(query, (current, value) => current.Include(value));
             }
             return query;
         }

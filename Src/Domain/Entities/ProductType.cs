@@ -14,5 +14,7 @@ namespace Domain.Entities
         public string Description { get ; set ; }
         public bool IsActive { get ; set ; }
         public string Summary { get ; set ; }
+        public ICollection<Product> Products { get; set; }
+
     }
 }

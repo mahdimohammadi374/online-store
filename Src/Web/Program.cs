@@ -18,4 +18,5 @@ builder.AddWebServiceCollection();
 
 
 var app = builder.Build(); 
+app.UseStaticFiles();
 await app.AddWebAppService();
