@@ -80,6 +80,12 @@ namespace Infrastructure.Persistance
         {
             return SpecificationEvaluator<T>.GetQuery(_dbSet.AsQueryable(), specification);
         }
+
+        public Task<int> CountAsyncSpec(ISpecification<T> specification, CancellationToken cancellationToken)
+        {
+
+            return ApplySpecification(specification).CountAsync(cancellationToken);
+        }
     }
 
 }

@@ -20,7 +20,7 @@ namespace Application.Contracts
         Task<bool> AnyAsync( CancellationToken token);
         Task<T> GetEntityWithSpec(ISpecification<T> specification, CancellationToken cancellationToken);
         Task<IReadOnlyList<T>> ListAsyncSpec(ISpecification<T> specification, CancellationToken cancellationToken);
-
+        Task<int> CountAsyncSpec(ISpecification<T> specification , CancellationToken cancellationToken);
     }
 }
  
